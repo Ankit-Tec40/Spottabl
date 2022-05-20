@@ -56,6 +56,8 @@ def queryData():
 
         data = pd.concat([que1_data, que2_data,que3_data,que4_data] , axis=1, sort=False)
         data=data.fillna(0)
+        data = data.astype({"Number of users on spottabl":"int","Number of users invited from spottabl":"int","Number of users who have accepted invite":"int","Number of users invited from spottabl user":"int"})
+
 
         data.to_csv("output.csv")
         return send_file('output.csv',
